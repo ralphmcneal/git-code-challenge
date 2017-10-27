@@ -1,6 +1,8 @@
 ### Git Code Challenge
 Requires Java 1.8. 
-Clone this repo and run the api from source or by executing the jar.
+Clone this repo and run the api from source or by executing the jar. 
+By default, this app returns  0:5 followers at 0:3 levels deep. You can change this behavior
+in the `Application`. Configurations can range from 0:N followers at 0:N levels deep.
 
 #### From Source
 
