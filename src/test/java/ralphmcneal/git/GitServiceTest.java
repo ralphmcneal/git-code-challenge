@@ -29,11 +29,11 @@ public class GitServiceTest {
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
-                        .withBody(gson.toJson(buildFollowers(1)))));
+                        .withBody(gson.toJson(buildFollowers(MAX_FOLLOWERS)))));
 
         List<User> users = underTest.getFollowers("user0", MAX_DEPTH);
 
-        assertEquals(1, users.size());
+        assertEquals(MAX_FOLLOWERS, users.size());
         assertFollowersMaxDepth(users, MAX_DEPTH);
     }
 
@@ -56,7 +56,7 @@ public class GitServiceTest {
 
         int nextLevel = depth - 1 ;
         users.forEach(user -> {
-            assertEquals("unexpected followers at depth " + depth, 1, user.getFollowers().size());
+            assertEquals("unexpected followers at depth " + depth, MAX_FOLLOWERS, user.getFollowers().size());
             assertFollowersMaxDepth(user.getFollowers(), nextLevel);
         });
     }
