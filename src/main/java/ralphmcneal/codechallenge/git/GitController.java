@@ -1,4 +1,4 @@
-package ralphmcneal.git;
+package ralphmcneal.codechallenge.git;
 
 import spark.Request;
 import spark.Response;

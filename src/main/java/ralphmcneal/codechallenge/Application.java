@@ -1,8 +1,8 @@
 package ralphmcneal.codechallenge;
 
 import com.google.gson.Gson;
-import ralphmcneal.git.GitController;
-import ralphmcneal.git.GitService;
+import ralphmcneal.codechallenge.git.GitController;
+import ralphmcneal.codechallenge.git.GitService;
 import spark.ResponseTransformer;
 
 import static spark.Spark.*;

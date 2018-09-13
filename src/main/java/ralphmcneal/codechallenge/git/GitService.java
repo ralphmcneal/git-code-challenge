@@ -1,4 +1,4 @@
-package ralphmcneal.git;
+package ralphmcneal.codechallenge.git;
 
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
@@ -20,10 +20,10 @@ public class GitService {
     }
 
     public List<User> getFollowers(String userId, int maxDepth) {
-        return buildFollowersList(apiBaseUrl + "/users/" + userId + "/followers", maxDepth);
+        return followersList(apiBaseUrl + "/users/" + userId + "/followers", maxDepth);
     }
 
-    private List<User> buildFollowersList(String url, int maxDepth) {
+    private List<User> followersList(String url, int maxDepth) {
         if (maxDepth < 1) return Collections.emptyList();
 
         HttpResponse<String> response;
@@ -41,7 +41,7 @@ public class GitService {
 
         int nextLevel = --maxDepth;
         List<User> users = asList(gson.fromJson(response.getBody(), User[].class));
-        users.forEach(user -> user.setFollowers(buildFollowersList(user.getFollowersUrl(), nextLevel)));
+        users.forEach(user -> user.setFollowers(followersList(user.getFollowersUrl(), nextLevel)));
         return users;
     }
 }

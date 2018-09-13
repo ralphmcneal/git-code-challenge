@@ -1,4 +1,4 @@
-package ralphmcneal.git;
+package ralphmcneal.codechallenge.git;
 
 public class GitServiceException extends RuntimeException {
     int statusCode;

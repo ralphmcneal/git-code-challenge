@@ -1,4 +1,4 @@
-package ralphmcneal.git;
+package ralphmcneal.codechallenge.git;
 
 import com.google.gson.annotations.SerializedName;
 

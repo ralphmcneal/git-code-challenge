@@ -1,4 +1,4 @@
-package ralphmcneal.git;
+package ralphmcneal.codechallenge.git;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
