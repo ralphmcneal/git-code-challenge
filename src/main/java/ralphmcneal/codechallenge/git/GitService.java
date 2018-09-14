@@ -39,9 +39,8 @@ public class GitService {
             throw new GitServiceException(response.getStatus());
         }
 
-        int nextLevel = --maxDepth;
         List<User> users = asList(gson.fromJson(response.getBody(), User[].class));
-        users.forEach(user -> user.setFollowers(followersList(user.getFollowersUrl(), nextLevel)));
+        users.forEach(user -> user.setFollowers(followersList(user.getFollowersUrl(), maxDepth - 1)));
         return users;
     }
 }

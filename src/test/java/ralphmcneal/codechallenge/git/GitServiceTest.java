@@ -55,10 +55,9 @@ public class GitServiceTest {
             return;
         }
 
-        int nextLevel = depth - 1;
         users.forEach(user -> {
             assertEquals("unexpected followers at depth " + depth, MAX_FOLLOWERS, user.getFollowers().size());
-            assertFollowersMaxDepth(user.getFollowers(), nextLevel);
+            assertFollowersMaxDepth(user.getFollowers(), depth - 1);
         });
     }
 
