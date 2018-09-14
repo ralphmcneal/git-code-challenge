@@ -35,7 +35,7 @@ public class GitServiceTest {
         List<User> users = underTest.getFollowers("user0", MAX_DEPTH);
 
         assertEquals(MAX_FOLLOWERS, users.size());
-        assertFollowersMaxDepth(users, MAX_DEPTH);
+        assertUserHasFollowersAtDepth(users, MAX_DEPTH);
     }
 
     @Test(expected = GitServiceException.class)
@@ -49,7 +49,7 @@ public class GitServiceTest {
         underTest.getFollowers("user0", MAX_DEPTH);
     }
 
-    private void assertFollowersMaxDepth(List<User> users, int depth) {
+    private void assertUserHasFollowersAtDepth(List<User> users, int depth) {
         if (depth <= 1) {
             users.forEach(user -> assertEquals("unexpected followers at depth " + depth, 0, user.getFollowers().size()));
             return;
@@ -57,7 +57,7 @@ public class GitServiceTest {
 
         users.forEach(user -> {
             assertEquals("unexpected followers at depth " + depth, MAX_FOLLOWERS, user.getFollowers().size());
-            assertFollowersMaxDepth(user.getFollowers(), depth - 1);
+            assertUserHasFollowersAtDepth(user.getFollowers(), depth - 1);
         });
     }
 
