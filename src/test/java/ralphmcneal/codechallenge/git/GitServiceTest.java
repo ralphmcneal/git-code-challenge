@@ -15,6 +15,7 @@ import static ralphmcneal.codechallenge.Application.MAX_DEPTH;
 import static ralphmcneal.codechallenge.Application.MAX_FOLLOWERS;
 
 public class GitServiceTest {
+
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089);
 
@@ -54,7 +55,7 @@ public class GitServiceTest {
             return;
         }
 
-        int nextLevel = depth - 1 ;
+        int nextLevel = depth - 1;
         users.forEach(user -> {
             assertEquals("unexpected followers at depth " + depth, MAX_FOLLOWERS, user.getFollowers().size());
             assertFollowersMaxDepth(user.getFollowers(), nextLevel);
