@@ -8,7 +8,7 @@ import java.util.List;
 import static ralphmcneal.codechallenge.Application.MAX_DEPTH;
 
 public class GitController {
-    private GitService gitService;
+    private final GitService gitService;
 
     public GitController(GitService gitService) {
         this.gitService = gitService;

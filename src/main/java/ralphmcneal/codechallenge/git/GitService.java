@@ -12,8 +12,8 @@ import static java.util.Arrays.asList;
 import static ralphmcneal.codechallenge.Application.MAX_FOLLOWERS;
 
 public class GitService {
-    private Gson gson = new Gson();
-    private String apiBaseUrl;
+    private final Gson gson = new Gson();
+    private final String apiBaseUrl;
 
     public GitService(String apiBaseUrl) {
         this.apiBaseUrl = apiBaseUrl;
