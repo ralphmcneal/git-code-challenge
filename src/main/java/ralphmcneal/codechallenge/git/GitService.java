@@ -36,7 +36,7 @@ public class GitService {
         }
 
         if(response.getStatus() != 200) {
-            throw new GitServiceException(response.getStatus());
+            throw new GitServiceException(response.getBody(), response.getStatus());
         }
 
         List<User> users = asList(gson.fromJson(response.getBody(), User[].class));
